@@ -47,11 +47,21 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.2.8@aar') {
         transitive = true
     }
+    compile('com.mikepenz:aboutlibraries:5.6.7@aar') {
+        transitive = true
+    }
+
+
     compile 'com.mikepenz:iconics-core:2.6.0@aar'
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.6.0.1@aar'
 
     compile 'com.jakewharton:butterknife:8.5.1'
+
+    compile 'com.ramotion.cardslider:card-slider:0.1.0'
+    'com.ramotion.paperonboarding:paper-onboarding:1.1.1'
+    'com.ramotion.expandingcollection:expanding-collection:0.9.0'
+    'com.ramotion.foldingcell:folding-cell:1.2.1'
 
     compile 'com.google.android.gms:play-services-maps:11.0.0'
     testCompile 'junit:junit:4.12'
