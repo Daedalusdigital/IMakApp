@@ -1,5 +1,6 @@
 package com.daedalusdigital.imakapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.percent.PercentLayoutHelper;
 import android.support.percent.PercentRelativeLayout;
@@ -10,6 +11,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.daedalusdigital.imakapp.activities.MainActivity;
 
 public class sign extends AppCompatActivity {
 
@@ -58,6 +61,14 @@ public class sign extends AppCompatActivity {
                 Animation clockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_right_to_left);
                 if(isSigninScreen)
                     btnSignup.startAnimation(clockwise);
+            }
+        });
+
+        llSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent imitent = new Intent(sign.this,MainActivity.class);
+                startActivity(imitent);
             }
         });
     }

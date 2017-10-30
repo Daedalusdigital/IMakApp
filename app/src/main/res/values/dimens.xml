@@ -20,7 +20,7 @@
     <dimen name="card_margin_bottom">1dp</dimen>
 
     <dimen name="card_elevation">2dp</dimen>
-    <dimen name="card_corner_radius">0dp</dimen>
+
 
     <dimen name="latest_card_corner_radius">0dp</dimen>
 
@@ -68,5 +68,35 @@
     <dimen name="about_profile">120dp</dimen>
     <dimen name="about_profile_border">3dp</dimen>
     <dimen name="about_profile_margin_top">-60dp</dimen>
+
+    <dimen name="material_drawer_padding_half">4dp</dimen>
+    <dimen name="material_drawer_persistent_height">48dp</dimen>
+    <dimen name="material_drawer_persistent_height_icon">32dp</dimen>
+
+    <dimen name="fullscreen_status_bar_height">0dp</dimen>
+
+    <dimen name="recycler_view_left_offset">9dp</dimen>
+    <dimen name="left_offset">61dp</dimen>
+    <dimen name="card_width">148dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="card_bottom_info_height">150dp</dimen>
+    <dimen name="card_extra_height">20dp</dimen>
+
+
+    <dimen name="margin_2x">16dp</dimen>
+    <dimen name="padding_2x">16dp</dimen>
+    <dimen name="margin_x">8dp</dimen>
+    <dimen name="padding_x2">4dp</dimen>
+    <dimen name="padding_x">8dp</dimen>
+    <dimen name="margin_3x">24dp</dimen>
+    <dimen name="button_size">50dp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="logo_size">112dp</dimen>
 
 </resources>

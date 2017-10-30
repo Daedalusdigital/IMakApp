@@ -1,11 +1,18 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 
+
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
+
+    final API_URL_DEV = "";
+    final API_URL_PROD = "";
+
     defaultConfig {
         applicationId "com.daedalusdigital.imakapp"
+        manifestPlaceholders = [HOCKEYAPP_APP_ID: "e9ac4c480b6b45a8ae9e9ca98b14bef3"]
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
@@ -43,7 +50,7 @@ dependencies {
     def mobileCenterSdkVersion = '0.12.0'
     compile "com.microsoft.azure.mobile:mobile-center-analytics:${mobileCenterSdkVersion}"
     compile "com.microsoft.azure.mobile:mobile-center-crashes:${mobileCenterSdkVersion}"
-
+    compile 'net.hockeyapp.android:HockeySDK:5.0.3'
     compile('com.mikepenz:materialdrawer:5.2.8@aar') {
         transitive = true
     }
@@ -51,6 +58,12 @@ dependencies {
         transitive = true
     }
 
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 
     compile 'com.mikepenz:iconics-core:2.6.0@aar'
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
@@ -61,8 +74,9 @@ dependencies {
     compile 'com.ramotion.cardslider:card-slider:0.1.0'
     'com.ramotion.paperonboarding:paper-onboarding:1.1.1'
     'com.ramotion.expandingcollection:expanding-collection:0.9.0'
-    'com.ramotion.foldingcell:folding-cell:1.2.1'
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
 
-    compile 'com.google.android.gms:play-services-maps:11.0.0'
+    provided 'org.projectlombok:lombok:1.16.16'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
     testCompile 'junit:junit:4.12'
 }

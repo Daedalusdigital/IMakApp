@@ -42,7 +42,13 @@
             android:inputType="textPassword"
             android:textColor="#FFFFFF" />
     </android.support.design.widget.TextInputLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        android:scaleType="centerCrop"
+        android:paddingBottom="20dp"
+        android:src="@drawable/button_bg" />
     <Button
         android:id="@+id/btnSignin"
         android:layout_width="match_parent"

@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00D474</color>
+    <color name="colorPrimary">#abc502</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffffff</color>
 
     <color name="colorPrimaryTrans">#a0673AB7</color>
-    <color name="colorAccentTrans">#00D474</color>
+    <color name="colorAccentTrans">#abc502</color>
     <color name="colorBlackTrans">#a0000000</color>
 
     <color name="colorGrayLight">#444444</color>
     <color name="colorGrayDark">#121212</color>
+
+    <color name="colorText">#f1f1f1</color>
+    <color name="colorBackground">#f8f8cf</color>
+    <color name="statusBarColor">#33f47d31</color>
+    <color name="buttonColor">#f58843</color>
+    <color name="dark_green">#af092d2a</color>
+
+    <color name="blue">#348af7</color>
+    <color name="temperature_background">@color/blue</color>
+    <color name="temperature_text">@android:color/white</color>
+
+    <color name="green_dot_big">@color/blue</color>
+    <color name="green_dot_small">@color/blue</color>
 </resources>

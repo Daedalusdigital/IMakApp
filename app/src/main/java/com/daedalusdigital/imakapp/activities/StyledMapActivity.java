@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.daedalusdigital.imakapp;
+package com.daedalusdigital.imakapp.activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.daedalusdigital.imakapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
