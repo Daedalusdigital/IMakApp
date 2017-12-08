@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#abc502</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#00ad79</color>
+    <color name="colorPrimaryDark">#00ad79</color>
     <color name="colorAccent">#ffffff</color>
 
-    <color name="colorPrimaryTrans">#a0673AB7</color>
-    <color name="colorAccentTrans">#abc502</color>
-    <color name="colorBlackTrans">#a0000000</color>
 
     <color name="colorGrayLight">#444444</color>
     <color name="colorGrayDark">#121212</color>
@@ -23,4 +20,14 @@
 
     <color name="green_dot_big">@color/blue</color>
     <color name="green_dot_small">@color/blue</color>
+
+    <color name="color_login_button">#00ad79</color>
+    <color name="color_login_buttonpress">#abc502</color>
+    <color name="color_signup_button">#F2F2F2</color>
+    <color name="color_signup_buttonpress">#EBEBEB</color>
+    <color name="color_primary_men">#00ACC1</color>
+    <color name="color_product_bottom">#ffffff</color>
+    <color name="color_edittext_hint">#fff</color>
+
+    <color name="color_edittext_label">#fff</color>
 </resources>
