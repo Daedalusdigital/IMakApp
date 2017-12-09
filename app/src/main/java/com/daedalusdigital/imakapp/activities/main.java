@@ -164,6 +164,7 @@ public class main extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         menu.findItem(R.id.action_open_source).setIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_cart_arrow_down).color(Color.WHITE).actionBar());
+        menu.findItem(R.id.action_refresh).setIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_refresh).paddingDp(1).color(Color.WHITE).actionBar());
         menu.findItem(R.id.action_shuffle).setIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_search).paddingDp(1).color(Color.WHITE).actionBar());
 
         return true;
@@ -174,11 +175,14 @@ public class main extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_open_source) {
             new LibsBuilder()
-                    .withFields(R.string.class.getFields())
                     .withActivityTitle(getString(R.string.action_open_source))
                     .withActivityTheme(R.style.MaterialDrawerTheme)
-                    .withLibraries("rxJava", "rxAndroid")
                     .start(this);
+
+            return true;
+        }
+        if (id == R.id.action_shuffle) {
+
 
             return true;
         }

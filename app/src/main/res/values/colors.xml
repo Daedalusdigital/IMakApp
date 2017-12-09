@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#00ad79</color>
     <color name="colorPrimaryDark">#00ad79</color>
     <color name="colorAccent">#ffffff</color>
 
+
+    <color name="colorPrimaryTrans">#a0673AB7</color>
+    <color name="colorAccentTrans">#A5D405</color>
+    <color name="colorBlackTrans">#a0000000</color>
 
     <color name="colorGrayLight">#444444</color>
     <color name="colorGrayDark">#121212</color>
