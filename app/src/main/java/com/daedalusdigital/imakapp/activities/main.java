@@ -71,6 +71,7 @@ public class main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_fragment);
+
         MobileCenter.start(getApplication(), "3086d8da-da5a-4288-98bc-b809037c6abe",
                 Analytics.class, Crashes.class);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
