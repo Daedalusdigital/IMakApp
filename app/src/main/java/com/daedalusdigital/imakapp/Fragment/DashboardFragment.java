@@ -8,12 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
-
 import java.util.Calendar;
 import java.util.Date;
 
 import com.daedalusdigital.imakapp.R;
-import com.daedalusdigital.imakapp.StatusBarUtil;
 import devs.mulham.horizontalcalendar.HorizontalCalendar;
 import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 
@@ -22,7 +20,7 @@ public class DashboardFragment extends Fragment
 
 	private Calendar endDate,startDate;
 	private HorizontalCalendar horizontalCalendar;
-	private View bgheadr, profpic, txtusername, ic_menu2,ic_menu1,lst1,lst2,lst3,lst4;
+	private View bgheadr, profpic, txtusername,lst1,lst2,lst3,lst4;;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		endDate = Calendar.getInstance();
@@ -35,13 +33,13 @@ public class DashboardFragment extends Fragment
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v=inflater.inflate(R.layout.fragment_dashboard, container, false);
-		ic_menu1=v.findViewById(R.id.fragmentdashboardMenu1);
-		ic_menu2=v.findViewById(R.id.fragmentdashboardMenu2);
 		profpic=v.findViewById(R.id.fragmentdashboardPic);
 		txtusername=v.findViewById(R.id.fragmentdashboardUsername);
-
-		StatusBarUtil.setPaddingSmart(getActivity(), ic_menu1);
-		StatusBarUtil.setPaddingSmart(getActivity(), ic_menu2);
+		lst1=v.findViewById(R.id.fragmentdashboardLinearLayout1);
+		lst2=v.findViewById(R.id.fragmentdashboardLinearLayout2);
+		lst3=v.findViewById(R.id.fragmentdashboardLinearLayout3);
+		lst4=v.findViewById(R.id.fragmentdashboardLinearLayout4);
+		bgheadr=v.findViewById(R.id.fragmentdashboardImageView1);
 		bgheadr.animate().setStartDelay(0).scaleX(2).scaleY(2).setDuration(0).start();
 		horizontalCalendar = new HorizontalCalendar.Builder(v, R.id.calendarView)
 			.startDate(startDate.getTime())
@@ -57,19 +55,17 @@ public class DashboardFragment extends Fragment
 			.textColor(Color.LTGRAY, Color.WHITE)
 			.selectedDateBackground(Color.TRANSPARENT)
 			.build();
-		
+
 		return v;
 	}
 
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		// TODO: Implement this method
-	
-	}
 	
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
-
+		resetanim(lst1);
+		resetanim(lst2);
+		resetanim(lst3);
+		resetanim(lst4);
 		txtusername.animate().setStartDelay(300).setDuration(2000).alpha(1).start();
 		profpic.animate().setStartDelay(0).setDuration(0).scaleX(0).scaleY(0).start();
 		profpic.animate().setStartDelay(500).setDuration(2000).setInterpolator(new OvershootInterpolator()).scaleX(1).scaleY(1).start();

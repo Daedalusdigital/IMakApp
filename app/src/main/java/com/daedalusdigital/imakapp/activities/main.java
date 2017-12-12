@@ -1,7 +1,7 @@
 package com.daedalusdigital.imakapp.activities;
 
 import android.graphics.Color;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,11 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.daedalusdigital.imakapp.Fragment.DashboardFragment;
+import com.daedalusdigital.imakapp.Fragment.SecondDrawerFragment;
 import com.daedalusdigital.imakapp.R;
 import com.microsoft.azure.mobile.MobileCenter;
 import com.microsoft.azure.mobile.analytics.Analytics;
 import com.microsoft.azure.mobile.crashes.Crashes;
-import net.hockeyapp.android.CrashManager;
 
 import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
@@ -27,27 +28,26 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
+import android.widget.Toast;
 
-import android.view.animation.OvershootInterpolator;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
+import static com.daedalusdigital.imakapp.activities.main.Category.FEATURED;
+
 
 public class main extends AppCompatActivity {
     public enum Category {
-        ALL(1000),
-        FEATURED(1001),
-        LOVED(1002),
-        BUILDINGS(1),
-        FOOD(2),
-        NATURE(4),
-        PEOPLE(8),
-        TECHNOLOGY(16),
-        OBJECTS(32);
+        ALL(1),
+        FEATURED(2),
+        LOVED(3),
+        BUILDINGS(4),
+        FOOD(5),
+        NATURE(6),
+        PEOPLE(7),
+        TECHNOLOGY(8),
+        OBJECTS(9);
 
         public final int id;
 
@@ -60,9 +60,8 @@ public class main extends AppCompatActivity {
     private IProfile profile;
     private static final int PROFILE_SETTING = 1;
     private AccountHeader headerResult = null;
-    private FragmentManager fragmentManager;
     private OnFilterChangedListener onFilterChangedListener;
-
+    Fragment frag_dashboard;
     public void setOnFilterChangedListener(OnFilterChangedListener onFilterChangedListener) {
         this.onFilterChangedListener = onFilterChangedListener;
     }
@@ -81,6 +80,7 @@ public class main extends AppCompatActivity {
         if (savedInstanceState == null)
         {
 
+
         }
 
         // Create a few sample profile
@@ -97,7 +97,7 @@ public class main extends AppCompatActivity {
                         new SectionDrawerItem().withName(R.string.category_section_menu),
                         new PrimaryDrawerItem().withName(R.string.category_salon).withIdentifier(Category.BUILDINGS.id).withIcon(GoogleMaterial.Icon.gmd_location_city),
                         new PrimaryDrawerItem().withName(R.string.category_style).withIdentifier(Category.FOOD.id).withIcon(GoogleMaterial.Icon.gmd_local_activity),
-                        new PrimaryDrawerItem().withName(R.string.category_book).withIdentifier(Category.FEATURED.id).withIcon(GoogleMaterial.Icon.gmd_book),
+                        new PrimaryDrawerItem().withName(R.string.category_book).withIdentifier(FEATURED.id).withIcon(GoogleMaterial.Icon.gmd_book),
                         new PrimaryDrawerItem().withName(R.string.category_fav).withIdentifier(Category.NATURE.id).withIcon(GoogleMaterial.Icon.gmd_favorite),
                         new PrimaryDrawerItem().withName(R.string.category_invite).withIdentifier(Category.OBJECTS.id).withIcon(GoogleMaterial.Icon.gmd_share),
                         new PrimaryDrawerItem().withName(R.string.category_customer).withIdentifier(Category.PEOPLE.id).withIcon(GoogleMaterial.Icon.gmd_help),
@@ -110,6 +110,7 @@ public class main extends AppCompatActivity {
                         if (drawerItem != null) {
                             if (drawerItem instanceof Nameable) {
                                 toolbar.setTitle(((Nameable) drawerItem).getName().getText(main.this));
+                                Toast.makeText(main.this, ((Nameable) drawerItem).getName().getText(main.this), Toast.LENGTH_SHORT).show();
                             }
                             if (onFilterChangedListener != null) {
                                 onFilterChangedListener.onFilterChanged(drawerItem.getIdentifier());
@@ -184,12 +185,17 @@ public class main extends AppCompatActivity {
         }
         if (id == R.id.action_shuffle) {
 
-
+            Fragment f = SecondDrawerFragment.newInstance("Demo");
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
             return true;
         }
-        if (id == R.id.action_shuffle) {
+        if (id == R.id.action_refresh) {
 
-
+            frag_dashboard=new DashboardFragment();
+            try{
+                Fragment f = new  DashboardFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+            }catch(Exception e){}
             return true;
         }
         return false; //super.onOptionsItemSelected(item);
@@ -198,13 +204,15 @@ public class main extends AppCompatActivity {
     {
 
     }
-    private void checkForCrashes() {
-        CrashManager.register(this);
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
+
     public void onResume() {
         super.onResume();
         // ... your own onResume implementation
-        checkForCrashes();
+
     }
     public interface OnFilterChangedListener {
         public void onFilterChanged(long filter);

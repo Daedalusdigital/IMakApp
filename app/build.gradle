@@ -44,12 +44,11 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile 'com.github.joaquimley:faboptions:1.1.2'
 
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.daasuu:EasingInterpolator:1.0.0'
     compile 'devs.mulham.horizontalcalendar:horizontalcalendar:1.1.7'
-
+    compile  'com.ramotion.paperonboarding:paper-onboarding:1.1.1'
 
     compile 'com.ramotion.cardslider:card-slider:0.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
@@ -59,13 +58,12 @@ dependencies {
     compile "com.microsoft.azure.mobile:mobile-center-analytics:${mobileCenterSdkVersion}"
     compile "com.microsoft.azure.mobile:mobile-center-crashes:${mobileCenterSdkVersion}"
     compile 'net.hockeyapp.android:HockeySDK:5.0.3'
-    compile('com.mikepenz:materialdrawer:5.2.8@aar') {
+    compile('com.mikepenz:materialdrawer:6.0.2@aar') {
         transitive = true
     }
     compile('com.mikepenz:aboutlibraries:5.6.7@aar') {
         transitive = true
     }
-
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'

@@ -8,75 +8,58 @@
 	android:background="#EEEEEE">
 
 	<RelativeLayout
-		android:layout_height="500dp"
-		android:layout_width="match_parent">
+		android:layout_width="match_parent"
+		android:layout_height="321dp">
 
 		<ImageView
-			android:layout_height="match_parent"
+			android:id="@+id/fragmentdashboardImageView1"
 			android:layout_width="match_parent"
-			android:src="@drawable/image_1"
+			android:layout_height="match_parent"
 			android:scaleType="centerCrop"
-			android:id="@+id/fragmentdashboardImageView1"/>
+			android:src="@drawable/lol" />
 
 		<View
-			android:layout_height="match_parent"
 			android:layout_width="match_parent"
-			android:background="#0F0F0F"
-			android:alpha="0.4"/>
-
-		<ImageView
-			android:layout_height="30dp"
-			android:layout_width="30dp"
-			android:tint="#ffffff"
-			android:src="@drawable/ic_menu"
-			android:layout_marginLeft="10dp"
-			android:id="@+id/fragmentdashboardMenu2"
-			android:scaleType="fitXY"
-			android:layout_marginTop="10dp"/>
-
-		<ImageView
-			android:layout_height="30dp"
-			android:layout_width="30dp"
-			android:tint="#ffffff"
-			android:src="@drawable/ic_search"
-			android:layout_alignParentRight="true"
-			android:layout_marginRight="10dp"
-			android:id="@+id/fragmentdashboardMenu1"
-			android:scaleType="fitXY"
-			android:layout_marginTop="10dp"/>
+			android:layout_height="match_parent"
+			android:layout_above="@+id/calendarView"
+			android:layout_alignParentStart="true"
+			android:alpha="0.4"
+			android:background="#0F0F0F" />
 
 		<devs.mulham.horizontalcalendar.HorizontalCalendarView
 			android:id="@+id/calendarView"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
 			android:background="#66000000"
-			app:textColorSelected="#ff0000"
-			android:layout_alignParentBottom="true">
-
-			<TextView
-				android:id="@+id/fragmentdashboardUsername"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="100dp"
-				android:alpha="0"
-				android:gravity="center"
-				android:text="Virra Adelia"
-				android:textColor="#FFFFFF"
-				android:textSize="40sp"
-				android:textStyle="bold"
-				android:typeface="serif" />
-		</devs.mulham.horizontalcalendar.HorizontalCalendarView>
+			app:textColorSelected="#ff0000" />
 
 		<com.daedalusdigital.imakapp.CircularImageView
-			android:layout_height="140dp"
+			android:id="@+id/fragmentdashboardPic"
 			android:layout_width="140dp"
+			android:layout_height="140dp"
+			android:layout_alignParentEnd="true"
+			android:layout_below="@+id/fragmentdashboardUsername"
+			android:layout_marginEnd="111dp"
 			android:scaleType="centerCrop"
-			android:src="@drawable/image_2"
-			android:layout_centerInParent="true"
-			android:id="@+id/fragmentdashboardPic"/>
+			android:src="@drawable/profile" />
+
+		<TextView
+			android:id="@+id/fragmentdashboardUsername"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:layout_marginTop="24dp"
+			android:alpha="0"
+			android:gravity="center"
+			android:text="@string/virra_adelia"
+			android:textColor="#FFFFFF"
+			android:textSize="40sp"
+			android:textStyle="bold"
+			android:typeface="serif" />
 
 	</RelativeLayout>
-
 	<LinearLayout
 		android:layout_height="match_parent"
 		android:layout_width="match_parent"
@@ -111,10 +94,10 @@
 			android:alpha="0">
 
 			<ImageView
-				android:src="@drawable/list_0001"
+				android:layout_width="249dp"
 				android:layout_height="80dp"
-				android:layout_width="290dp"
-				android:scaleType="fitXY"/>
+				android:scaleType="fitXY"
+				android:src="@drawable/list_0001" />
 
 		</LinearLayout>
 
@@ -129,10 +112,10 @@
 			android:alpha="0">
 
 			<ImageView
-				android:src="@drawable/list_0002"
+				android:layout_width="252dp"
 				android:layout_height="80dp"
-				android:layout_width="240dp"
-				android:scaleType="fitXY"/>
+				android:scaleType="fitXY"
+				android:src="@drawable/list_0002" />
 
 		</LinearLayout>
 
@@ -157,4 +140,6 @@
 	</LinearLayout>
 
 </LinearLayout>
+
+
 

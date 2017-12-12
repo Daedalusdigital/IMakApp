@@ -20,6 +20,7 @@ import com.daasuu.ei.Ease;
 import com.daasuu.ei.EasingInterpolator;
 import com.daedalusdigital.imakapp.Fragment.DashboardFragment;
 import com.daedalusdigital.imakapp.Fragment.LoginFragment;
+import com.daedalusdigital.imakapp.Fragment.WelcomeFragmentsActivity;
 import com.daedalusdigital.imakapp.activities.main;
 
 
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity
 		StatusBarUtil.immersive(this);
 
 		frag_login=new LoginFragment();
-		frag_dashboard=new DashboardFragment();
 		getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, frag_login).commit();
 		final ValueAnimator va=new ValueAnimator();
 		va.setDuration(1000);
@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity
 					button_label.animate().setStartDelay(100).setDuration(500).alpha(0).start();
 					button_login.animate().setInterpolator(new FastOutSlowInInterpolator()).setStartDelay(4000).setDuration(1000).setListener(new Animator.AnimatorListener(){
 							@Override
-							public void onAnimationStart(Animator p1) {
-
+							public void onAnimationStart(Animator p1)
+							{
 
 							}
 
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity
 									goToAttract();
 
 								}catch(Exception e){}
+
 							}
 
 							@Override
@@ -111,12 +112,9 @@ public class MainActivity extends AppCompatActivity
     }
 	public void goToAttract()
 	{
-		Intent intent = new Intent( this, main.class);
+		Intent intent = new Intent( this, WelcomeFragmentsActivity.class);
 		startActivity(intent);
-	}
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		
+		finish();
 	}
 
 }

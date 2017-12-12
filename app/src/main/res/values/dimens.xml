@@ -2,7 +2,7 @@
 <resources>
 
     <dimen name="sl_toolbar_size">56dp</dimen>
-
+    <dimen name="baseline">20dp</dimen>
     <dimen name="content_margin">16dp</dimen>
     <dimen name="content_padding">8dp</dimen>
 

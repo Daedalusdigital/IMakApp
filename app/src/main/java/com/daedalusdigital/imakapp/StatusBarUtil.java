@@ -1,11 +1,11 @@
 package com.daedalusdigital.imakapp;
 
+import android.support.annotation.RequiresApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.support.annotation.FloatRange;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
-
 
 
 @SuppressWarnings("unused")

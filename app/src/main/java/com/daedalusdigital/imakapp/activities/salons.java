@@ -40,7 +40,6 @@ public class salons extends AppCompatActivity {
     private final int[] descriptions = {R.string.text1, R.string.text2, R.string.text3, R.string.text4, R.string.text5};
     private final String[] countries = {"PARIS", "SEOUL", "LONDON", "BEIJING", "THIRA"};
     private final String[] places = {"The Louvre", "Gwanghwamun", "Tower Bridge", "Temple of Heaven", "Aegeana Sea"};
-    private final String[] temperatures = {"21°C", "19°C", "17°C", "23°C", "20°C"};
     private final String[] times = {"Aug 1 - Dec 15    7:00-18:00", "Sep 5 - Nov 10    8:00-16:00", "Mar 8 - May 21    7:00-18:00"};
 
     private final SliderAdapter sliderAdapter = new SliderAdapter(pics, 20, new OnCardClickListener());
@@ -48,7 +47,6 @@ public class salons extends AppCompatActivity {
     private CardSliderLayoutManager layoutManger;
     private RecyclerView recyclerView;
     private ImageSwitcher mapSwitcher;
-    private TextSwitcher temperatureSwitcher;
     private TextSwitcher placeSwitcher;
     private TextSwitcher clockSwitcher;
     private TextSwitcher descriptionsSwitcher;
@@ -103,9 +101,7 @@ public class salons extends AppCompatActivity {
     }
 
     private void initSwitchers() {
-        temperatureSwitcher = (TextSwitcher) findViewById(R.id.ts_temperature);
-        temperatureSwitcher.setFactory(new TextViewFactory(R.style.TemperatureTextView, true));
-        temperatureSwitcher.setCurrentText(temperatures[0]);
+
 
         placeSwitcher = (TextSwitcher) findViewById(R.id.ts_place);
         placeSwitcher.setFactory(new TextViewFactory(R.style.PlaceTextView, false));
@@ -227,10 +223,6 @@ public class salons extends AppCompatActivity {
         }
 
         setCountryText(countries[pos % countries.length], left2right);
-
-        temperatureSwitcher.setInAnimation(salons.this, animH[0]);
-        temperatureSwitcher.setOutAnimation(salons.this, animH[1]);
-        temperatureSwitcher.setText(temperatures[pos % temperatures.length]);
 
         placeSwitcher.setInAnimation(salons.this, animV[0]);
         placeSwitcher.setOutAnimation(salons.this, animV[1]);

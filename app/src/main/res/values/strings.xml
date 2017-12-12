@@ -81,6 +81,15 @@
     <string name="range">Range</string>
     <string name="none">None</string>
 
+
+    <string name="feedback_input">Feedback</string>
+    <string name="name_input">Name</string>
+    <string name="email_input">Email</string>
+    <string name="feedback_input_hint">Enter your feedback</string>
+    <string name="name_input_hint">Enter your name</string>
+    <string name="email_input_hint">Enter your email</string>
+    <string name="action_settings">About</string>
+
     <!-- MENU -->
     <string name="select_all_fridays">Select All Fridays</string>
     <string name="unselect_all_fridays">Unselect All Fridays</string>
@@ -94,7 +103,7 @@
     <string name="text3">Tower Bridge is a combined bascule and suspension bridge in London built in 1886–1894.</string>
     <string name="text4">The Temple of Heaven is an imperial complex of religious buildings situated in the southeastern part…</string>
     <string name="text5">The Aegean Islands are within the sea and some bound it on its southern periphery…</string>
-
+    <string name="virra_adelia">Welcome King</string>
 
 
 </resources>
