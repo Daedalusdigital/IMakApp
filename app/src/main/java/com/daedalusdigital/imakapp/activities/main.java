@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.daedalusdigital.imakapp.Fragment.DashboardFragment;
-import com.daedalusdigital.imakapp.Fragment.SecondDrawerFragment;
+import com.daedalusdigital.imakapp.Fragment.PayloadFragment;
+import com.daedalusdigital.imakapp.Fragment.PendingrFragment;
 import com.daedalusdigital.imakapp.R;
 import com.microsoft.azure.mobile.MobileCenter;
 import com.microsoft.azure.mobile.analytics.Analytics;
@@ -20,6 +21,7 @@ import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.materialdrawer.holder.BadgeStyle;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -34,34 +36,18 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
-import static com.daedalusdigital.imakapp.activities.main.Category.FEATURED;
+
 
 
 public class main extends AppCompatActivity {
-    public enum Category {
-        ALL(1),
-        FEATURED(2),
-        LOVED(3),
-        BUILDINGS(4),
-        FOOD(5),
-        NATURE(6),
-        PEOPLE(7),
-        TECHNOLOGY(8),
-        OBJECTS(9);
 
-        public final int id;
-
-        private Category(int id) {
-            this.id = id;
-        }
-    }
 
     public Drawer result;
     private IProfile profile;
     private static final int PROFILE_SETTING = 1;
     private AccountHeader headerResult = null;
     private OnFilterChangedListener onFilterChangedListener;
-    Fragment frag_dashboard;
+    Fragment frag_dashboard,frag_report,frag_stylist;
     public void setOnFilterChangedListener(OnFilterChangedListener onFilterChangedListener) {
         this.onFilterChangedListener = onFilterChangedListener;
     }
@@ -73,7 +59,7 @@ public class main extends AppCompatActivity {
 
         MobileCenter.start(getApplication(), "3086d8da-da5a-4288-98bc-b809037c6abe",
                 Analytics.class, Crashes.class);
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
+        final Toolbar toolbar = findViewById(R.id.activity_main_toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
@@ -93,34 +79,72 @@ public class main extends AppCompatActivity {
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.category_location).withIdentifier(Category.ALL.id).withIcon(GoogleMaterial.Icon.gmd_my_location),
-                        new SectionDrawerItem().withName(R.string.category_section_menu),
-                        new PrimaryDrawerItem().withName(R.string.category_salon).withIdentifier(Category.BUILDINGS.id).withIcon(GoogleMaterial.Icon.gmd_location_city),
-                        new PrimaryDrawerItem().withName(R.string.category_style).withIdentifier(Category.FOOD.id).withIcon(GoogleMaterial.Icon.gmd_local_activity),
-                        new PrimaryDrawerItem().withName(R.string.category_book).withIdentifier(FEATURED.id).withIcon(GoogleMaterial.Icon.gmd_book),
-                        new PrimaryDrawerItem().withName(R.string.category_fav).withIdentifier(Category.NATURE.id).withIcon(GoogleMaterial.Icon.gmd_favorite),
-                        new PrimaryDrawerItem().withName(R.string.category_invite).withIdentifier(Category.OBJECTS.id).withIcon(GoogleMaterial.Icon.gmd_share),
-                        new PrimaryDrawerItem().withName(R.string.category_customer).withIdentifier(Category.PEOPLE.id).withIcon(GoogleMaterial.Icon.gmd_help),
-                        new PrimaryDrawerItem().withName(R.string.category_set).withIdentifier(Category.TECHNOLOGY.id).withIcon(GoogleMaterial.Icon.gmd_settings)
+                        new PrimaryDrawerItem().withName(R.string.category_location).withBadge("15").withBadgeStyle(new BadgeStyle().withTextColor(Color.WHITE).withColorRes(R.color.md_red_700)).withIconColor(0).withIcon(GoogleMaterial.Icon.gmd_my_location).withIdentifier(1),
+                        new SectionDrawerItem().withName(R.string.category_section_menu).withIdentifier(2),
+                        new PrimaryDrawerItem().withName(R.string.category_salon).withIcon(GoogleMaterial.Icon.gmd_location_city).withIdentifier(3).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.category_style).withIcon(GoogleMaterial.Icon.gmd_local_activity).withIdentifier(4).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.category_book).withIcon(GoogleMaterial.Icon.gmd_book).withIdentifier(5).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.category_fav).withIcon(GoogleMaterial.Icon.gmd_favorite).withIdentifier(6).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.category_invite).withIcon(GoogleMaterial.Icon.gmd_share).withIdentifier(7).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.category_customer).withIcon(GoogleMaterial.Icon.gmd_help).withIdentifier(8).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.category_set).withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(9).withSelectable(false)
                 )
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener()
+                {
 
                     @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        if (drawerItem != null) {
-                            if (drawerItem instanceof Nameable) {
-                                toolbar.setTitle(((Nameable) drawerItem).getName().getText(main.this));
-                                Toast.makeText(main.this, ((Nameable) drawerItem).getName().getText(main.this), Toast.LENGTH_SHORT).show();
-                            }
-                            if (onFilterChangedListener != null) {
-                                onFilterChangedListener.onFilterChanged(drawerItem.getIdentifier());
-                            }
-                        }
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem )
+                    {
 
+                        if(drawerItem.getIdentifier() == 1)
+                        {
+                            frag_dashboard=new DashboardFragment();
+                            try{
+                                    Fragment f = new  DashboardFragment();
+                                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+                                    return true;
+                                }
+                                catch(Exception e)
+                                {
+                                    Toast.makeText(main.this, ((Nameable) drawerItem).getName().getText(main.this), Toast.LENGTH_SHORT).show();
+                                }
+                        }
+                        if(drawerItem.equals(3))
+                        {
+                            frag_stylist=new PayloadFragment();
+                            try{
+                                Fragment f = new  PayloadFragment();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+                                return true;
+                            }
+                            catch(Exception e)
+                            {}
+                        }
+                        if(drawerItem.equals(7))
+                        {
+                            frag_report =new report();
+                            try{
+                                Fragment f = new  report();
+                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+                                return true;
+                            }
+                            catch(Exception e)
+                            {}
+                        }
+                        if(drawerItem.equals(6))
+                        {
+
+                        }try{
+                            Fragment f = new PendingrFragment();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+                        }
+                        catch(Exception e)
+                        {}
                         return false;
                     }
-                })
+                }).withSavedInstance(savedInstanceState)
                 .build();
+
         result.getRecyclerView().setVerticalScrollBarEnabled(false);
     }
 
@@ -143,7 +167,7 @@ public class main extends AppCompatActivity {
                     public boolean onProfileChanged(View view, IProfile profile, boolean current) {
                         //sample usage of the onProfileChanged listener
                         //if the clicked item has the identifier 1 add a new profile ;)
-                        if (profile instanceof IDrawerItem && ((IDrawerItem) profile).getIdentifier() == PROFILE_SETTING) {
+                        if (profile instanceof IDrawerItem && profile.getIdentifier() == PROFILE_SETTING) {
                             IProfile newProfile = new ProfileDrawerItem().withNameShown(true).withName("Batman").withEmail("batman@gmail.com").withIcon(getResources().getDrawable(com.daedalusdigital.imakapp.R.drawable.profile));
                             if (headerResult.getProfiles() != null) {
                                 //we know that there are 2 setting elements. set the new profile above them ;)
@@ -176,17 +200,19 @@ public class main extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_open_source) {
-            new LibsBuilder()
-                    .withActivityTitle(getString(R.string.action_open_source))
-                    .withActivityTheme(R.style.MaterialDrawerTheme)
-                    .start(this);
-
+            frag_report =new report();
+            try {
+                Fragment f = new report();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+            }catch(Exception e){}
             return true;
         }
         if (id == R.id.action_shuffle) {
-
-            Fragment f = SecondDrawerFragment.newInstance("Demo");
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+            frag_stylist=new PayloadFragment();
+            try{
+                Fragment f = new  PayloadFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
+            }catch(Exception e){}
             return true;
         }
         if (id == R.id.action_refresh) {
@@ -206,6 +232,7 @@ public class main extends AppCompatActivity {
     }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        outState = result.saveInstanceState(outState);
         super.onSaveInstanceState(outState);
     }
 
@@ -215,6 +242,15 @@ public class main extends AppCompatActivity {
 
     }
     public interface OnFilterChangedListener {
-        public void onFilterChanged(long filter);
+        void onFilterChanged(long filter);
+    }
+    @Override
+    public void onBackPressed() {
+        //handle the back press :D close the drawer first and if the drawer is closed close the activity
+        if (result != null && result.isDrawerOpen()) {
+            result.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

@@ -7,8 +7,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
 
-    final API_URL_DEV = "";
-    final API_URL_PROD = "";
+    final API_URL_DEV = ""
+    final API_URL_PROD = ""
 
     defaultConfig {
         applicationId "com.daedalusdigital.imakapp"
@@ -29,10 +29,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.michaelbel:bottomsheet:1.1.2'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -44,6 +49,10 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    compile 'com.ramotion.foldingcell:folding-cell:1.2.1'
+    compile 'com.ramotion.circlemenu:circle-menu:0.2.1'
+    compile 'com.ramotion.garlandview:garland-view:0.2.1'
+    compile 'com.ramotion.expandingcollection:expanding-collection:0.9.0'
 
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.daasuu:EasingInterpolator:1.0.0'
@@ -70,7 +79,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.2.4'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.mikepenz:iconics-core:2.6.0@aar'
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
@@ -82,7 +91,12 @@ dependencies {
     'com.ramotion.expandingcollection:expanding-collection:0.9.0'
     compile 'com.google.android.gms:play-services-maps:11.6.2'
 
+<<<<<<< Updated upstream
     compile 'io.realm:android-adapters:2.0.0'
+=======
+    compile 'com.github.vivchar:RendererRecyclerViewAdapter:2.3.1'
+
+>>>>>>> Stashed changes
 
     provided 'org.glassfish:javax.annotation:10.0-b28'
     testCompile 'junit:junit:4.12'

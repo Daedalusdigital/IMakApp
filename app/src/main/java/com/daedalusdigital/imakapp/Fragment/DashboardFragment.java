@@ -20,7 +20,8 @@ public class DashboardFragment extends Fragment
 
 	private Calendar endDate,startDate;
 	private HorizontalCalendar horizontalCalendar;
-	private View bgheadr, profpic, txtusername,lst1,lst2,lst3,lst4;;
+	private View bgheadr, profpic, txtusername,lst1,lst2,lst3,lst4;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		endDate = Calendar.getInstance();

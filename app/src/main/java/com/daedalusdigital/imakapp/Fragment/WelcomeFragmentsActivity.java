@@ -53,10 +53,10 @@ public class WelcomeFragmentsActivity extends AppCompatActivity {
         // prepare data
         PaperOnboardingPage scr1 = new PaperOnboardingPage("Salons", "Find Avalible Salons Around You",
                 Color.parseColor("#00ad79"), R.drawable.hotels, R.drawable.key);
-        PaperOnboardingPage scr2 = new PaperOnboardingPage("Banks", "We carefully verify all banks before add them into the app",
-                Color.parseColor("#65B0B4"), R.drawable.banks, R.drawable.wallet);
-        PaperOnboardingPage scr3 = new PaperOnboardingPage("Stores", "All local stores are categorized for your convenience",
-                Color.parseColor("#9B90BC"), R.drawable.stores, R.drawable.shopping_cart);
+        PaperOnboardingPage scr2 = new PaperOnboardingPage("Banks", "Find Avalible Salons Around You",
+                Color.parseColor("#FFFF00"), R.drawable.banks, R.drawable.wallet);
+        PaperOnboardingPage scr3 = new PaperOnboardingPage("Stores", "Find Avalible Salons Around You",
+                Color.parseColor("#000000"), R.drawable.stores, R.drawable.shopping_cart);
 
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(scr1);

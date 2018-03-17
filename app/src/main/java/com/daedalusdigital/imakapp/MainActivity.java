@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		pbar=(ProgressBar) findViewById(R.id.mainProgressBar1);
+		pbar= findViewById(R.id.mainProgressBar1);
 		button_icon=findViewById(R.id.button_icon);
 		button_label=findViewById(R.id.button_label);
 

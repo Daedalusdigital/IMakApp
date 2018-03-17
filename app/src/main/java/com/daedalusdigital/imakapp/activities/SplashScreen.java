@@ -16,7 +16,7 @@ public class SplashScreen extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
     StatusBarUtil.immersive(this);
-    startActivity(new Intent(this, DetailsActivity.class));
+    startActivity(new Intent(this, MainActivity.class));
     finish();
   }
 }

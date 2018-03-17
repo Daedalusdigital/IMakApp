@@ -26,7 +26,7 @@ public class LoginFragment extends Fragment
 		dm=getResources().getDisplayMetrics();
 		form_login=v.findViewById(R.id.form_login);
 		imglogo=v.findViewById(R.id.fragmentloginLogo);
-		kbv=(KenBurnsView) v.findViewById(R.id.fragmentloginKenBurnsView1);
+		kbv= v.findViewById(R.id.fragmentloginKenBurnsView1);
 		darkoverlay=v.findViewById(R.id.fragmentloginView1);
 		label_signup=v.findViewById(R.id.label_signup);
 		return v;

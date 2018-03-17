@@ -65,6 +65,7 @@
         android:name=".activities.DetailsActivity"
         android:screenOrientation="portrait"/>
 
+
     </application>
 
 </manifest>

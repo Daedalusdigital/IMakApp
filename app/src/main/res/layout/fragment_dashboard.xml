@@ -2,6 +2,7 @@
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-res"
+	xmlns:app2="http://schemas.android.com/apk/res-auto"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
@@ -65,77 +66,93 @@
 		android:layout_width="match_parent"
 		android:orientation="vertical">
 
-		<LinearLayout
-			android:layout_height="wrap_content"
+		<android.support.v4.widget.NestedScrollView
 			android:layout_width="match_parent"
-			android:background="#FFFFFF"
-			android:gravity="left"
-			android:orientation="horizontal"
-			android:layout_marginBottom="1dp"
-			android:id="@+id/fragmentdashboardLinearLayout1"
-			android:alpha="0">
+			android:layout_height="match_parent"
+			android:clipToPadding="false"
+			app2:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-			<ImageView
-				android:src="@drawable/list_0000"
-				android:layout_height="80dp"
-				android:layout_width="250dp"
-				android:scaleType="fitXY"/>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:padding="@dimen/baseline">
 
-		</LinearLayout>
+				<LinearLayout
+					android:id="@+id/fragmentdashboardLinearLayout1"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginBottom="1dp"
+					android:alpha="0"
+					android:background="#FFFFFF"
+					android:gravity="left"
+					android:orientation="horizontal">
 
-		<LinearLayout
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:background="#FFFFFF"
-			android:gravity="left"
-			android:orientation="horizontal"
-			android:layout_marginBottom="1dp"
-			android:id="@+id/fragmentdashboardLinearLayout2"
-			android:alpha="0">
+					<ImageView
+						android:layout_width="250dp"
+						android:layout_height="80dp"
+						android:scaleType="fitXY"
+						android:src="@drawable/list_0000" />
 
-			<ImageView
-				android:layout_width="249dp"
-				android:layout_height="80dp"
-				android:scaleType="fitXY"
-				android:src="@drawable/list_0001" />
+				</LinearLayout>
 
-		</LinearLayout>
+				<LinearLayout
+					android:id="@+id/fragmentdashboardLinearLayout3"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginBottom="1dp"
+					android:alpha="0"
+					android:background="#FFFFFF"
+					android:gravity="left"
+					android:orientation="horizontal">
 
-		<LinearLayout
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:background="#FFFFFF"
-			android:gravity="left"
-			android:orientation="horizontal"
-			android:layout_marginBottom="1dp"
-			android:id="@+id/fragmentdashboardLinearLayout3"
-			android:alpha="0">
+					<ImageView
+						android:layout_width="252dp"
+						android:layout_height="80dp"
+						android:scaleType="fitXY"
+						android:src="@drawable/list_0002" />
 
-			<ImageView
-				android:layout_width="252dp"
-				android:layout_height="80dp"
-				android:scaleType="fitXY"
-				android:src="@drawable/list_0002" />
+				</LinearLayout>
 
-		</LinearLayout>
+				<LinearLayout
+					android:id="@+id/fragmentdashboardLinearLayout2"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginBottom="1dp"
+					android:alpha="0"
+					android:background="#FFFFFF"
+					android:gravity="left"
+					android:orientation="horizontal">
 
-		<LinearLayout
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:background="#FFFFFF"
-			android:gravity="left"
-			android:orientation="horizontal"
-			android:layout_marginBottom="1dp"
-			android:id="@+id/fragmentdashboardLinearLayout4"
-			android:alpha="0">
+					<ImageView
+						android:layout_width="249dp"
+						android:layout_height="80dp"
+						android:scaleType="fitXY"
+						android:src="@drawable/list_0001" />
 
-			<ImageView
-				android:src="@drawable/list_0000"
-				android:layout_height="80dp"
-				android:layout_width="250dp"
-				android:scaleType="fitXY"/>
+				</LinearLayout>
 
-		</LinearLayout>
+				<LinearLayout
+					android:id="@+id/fragmentdashboardLinearLayout4"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginBottom="1dp"
+					android:alpha="0"
+					android:background="#FFFFFF"
+					android:gravity="left"
+					android:orientation="horizontal">
+
+					<ImageView
+						android:layout_width="250dp"
+						android:layout_height="80dp"
+						android:scaleType="fitXY"
+						android:src="@drawable/list_0000" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</android.support.v4.widget.NestedScrollView>
 
 	</LinearLayout>
 
